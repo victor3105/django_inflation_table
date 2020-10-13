@@ -29,27 +29,25 @@
           {% for row in inflation_list %}
           <tr>
             {% for key, val in row.items %}
-            {% if key == 'Суммарная' %}
-            <td bgcolor="gray">{{ val }}</td>
-            {% elif key != 'Год' %}
-            {% if val == '' %}
-            <td>-</td>
-            {% elif val|to_float < 0.0 %}
-            <td bgcolor="98fb98">{{ val }}</td>
-            {% elif val|to_float > 1 and val|to_float <= 2 %}
-            <td bgcolor="#ffc0cb">{{ val }}</td>
-            {% elif val|to_float > 2 and val|to_float <= 5 %}
-            <td bgcolor="#ff1493">{{ val }}</td>
-            {% elif val|to_float > 5 %}
-            <td bgcolor="#ff0000">{{ val }}</td>
-            {% else %}
-            <td>{{ val }}</td>
-            {% endif %}
-            {% else %}
-            <td>
-              {{ val }}
-            </td>
-            {% endif %}
+              {% if key == 'Суммарная' %}
+                <td bgcolor="gray">{{ val }}</td>
+              {% elif key != 'Год' %}
+                {% if val == '' %}
+                  <td>-</td>
+                {% elif val|to_float < 0.0 %}
+                  <td bgcolor="98fb98">{{ val }}</td>
+                {% elif val|to_float > 1 and val|to_float <= 2 %}
+                  <td bgcolor="#ffc0cb">{{ val }}</td>
+                {% elif val|to_float > 2 and val|to_float <= 5 %}
+                  <td bgcolor="#ff1493">{{ val }}</td>
+                {% elif val|to_float > 5 %}
+                  <td bgcolor="#ff0000">{{ val }}</td>
+                {% else %}
+                  <td>{{ val }}</td>
+                {% endif %}
+              {% else %}
+                <td>{{ val }}</td>
+              {% endif %}
             {% endfor %}
           </tr>
           {% endfor %}
